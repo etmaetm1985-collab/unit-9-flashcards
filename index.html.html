@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 9 | Active & Passive Flashcards</title>
+<style>
+:root{--ink:#242936;--red:#df382b;--gold:#ffd44f;--mint:#e3f4ed;--cream:#fff4c9;--muted:#69717d;--line:#e5e7eb;--bg:#f6f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:var(--gold);padding:25px 18px 22px;text-align:center}
+.eyebrow{text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:.1em;color:#a52c23}
+h1{margin:.35rem 0;font-size:clamp(1.7rem,5vw,2.6rem);line-height:1.1}
+header p{margin:.65rem auto 0;max-width:700px}
+main{max-width:850px;margin:22px auto;padding:0 14px 30px}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;font-weight:700}
+.progress{height:8px;border-radius:99px;background:#e2e4e8;overflow:hidden;margin-bottom:15px}
+#bar{height:100%;width:3.33%;background:var(--red);transition:width .2s}
+.card{width:100%;min-height:300px;border:2px solid #ead67b;border-radius:22px;background:var(--cream);padding:clamp(22px,5vw,42px);display:flex;flex-direction:column;justify-content:space-between;text-align:center;cursor:pointer;box-shadow:0 8px 22px #20293812;transition:background .2s,border-color .2s}
+.card.answer{background:var(--mint);border-color:#9fcfba}
+.category{font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:#98511b}
+.answer .category{color:#24684e}
+.question{font-size:clamp(1.25rem,3.8vw,1.9rem);font-weight:750;white-space:pre-line;margin:22px 0;line-height:1.4}
+.explanation{font-size:1rem;line-height:1.5;white-space:pre-line;color:#3d4653}
+.tap{font-size:.9rem;color:var(--muted);margin-top:18px}
+.controls{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:9px;margin-top:13px}
+button{font:inherit;font-weight:700;border-radius:12px;border:1px solid #d6d9df;padding:12px 10px;background:white;color:var(--ink);cursor:pointer}
+button:disabled{opacity:.4;cursor:not-allowed}
+button.primary{background:var(--red);border-color:var(--red);color:white}
+.tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.tools button{flex:1}
+.status{background:white;border:1px solid var(--line);border-radius:16px;padding:15px;margin-top:16px}
+.status strong{display:block;margin-bottom:5px}
+.small{font-size:.9rem;color:var(--muted);line-height:1.45}
+kbd{background:#f0f1f3;border-radius:5px;padding:2px 5px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 16px 26px}
+@media(max-width:520px){.controls{grid-template-columns:1fr 1fr}.controls .primary{grid-column:1/-1;grid-row:1}.card{min-height:280px}.topline{font-size:.92rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Level 3 · National Geographic Life · Unit 9</div>
+  <h1>Active &amp; Passive Voice</h1>
+  <p>30 interactive flashcards · Present simple and past simple only</p>
+</header>
+<main>
+  <div class="topline"><span id="count">Card 1 of 30</span><span id="mastered">Mastered: 0/30</span></div>
+  <div class="progress" aria-label="Card progress"><div id="bar"></div></div>
+  <div class="card" id="card" role="button" tabindex="0" aria-label="Flashcard. Click to reveal answer">
+    <div class="category" id="category">Active or passive?</div>
+    <div class="question" id="question">Most people recognize the Coca-Cola logo.</div>
+    <div class="tap" id="tap">Think of your answer, then tap to reveal.</div>
+  </div>
+  <div class="controls">
+    <button id="prev" type="button">← Previous</button>
+    <button id="flip" class="primary" type="button">Reveal answer</button>
+    <button id="next" type="button">Next →</button>
+  </div>
+  <div class="tools">
+    <button id="gotit" type="button">✓ I got it right</button>
+    <button id="again" type="button">↻ Practise again</button>
+    <button id="shuffle" type="button">Shuffle cards</button>
+    <button id="restart" type="button">Restart</button>
+  </div>
+  <div class="status">
+    <strong id="sideTitle">Your task</strong>
+    <div id="explanation" class="explanation" hidden></div>
+    <div class="small" id="helper">Click the card or “Reveal answer” to check your response. Mark a card as mastered when you answer correctly.</div>
+  </div>
+  <p class="small">Grammar focus: active and passive voice in the present simple and past simple. No present perfect, continuous, or future passive forms.</p>
+</main>
+<footer>Unit 9 grammar practice · Use the buttons or tap the card to flip it.</footer>
+<script>
+const cards = [
+{task:"Active or passive?",q:"Most people recognize the Coca-Cola logo.",a:"ACTIVE",why:"Most people perform the action: recognize."},
+{task:"Active or passive?",q:"The clothes are made in that factory.",a:"PASSIVE",why:"Present simple passive: are + made."},
+{task:"Active or passive?",q:"My question wasn’t answered.",a:"PASSIVE",why:"Past simple passive: wasn’t + answered."},
+{task:"Complete the sentence",q:"The logo ___ 20 years ago. (design)",a:"was designed",why:"Past simple passive: was + past participle."},
+{task:"Complete the sentence",q:"Public transportation ___ a lot in my country. (use)",a:"is used",why:"Present simple passive: is + past participle."},
+{task:"Complete the sentence",q:"About 400 million cups of coffee ___ every day. (drink)",a:"are drunk",why:"Present simple passive; the subject is “cups” (plural)."},
+{task:"Complete the sentence",q:"The first university ___ more than 1,000 years ago. (open)",a:"was opened",why:"Past simple passive: was + past participle."},
+{task:"Complete the sentence",q:"New articles ___ for the website every month. (write)",a:"are written",why:"Present simple passive for a regular action."},
+{task:"Change to the passive",q:"Jeff Bezos created Amazon in 1994.",a:"Amazon was created by Jeff Bezos in 1994.",why:"Past simple: created → was created."},
+{task:"Change to the passive",q:"Over seven million people visit the Taj Mahal every year.",a:"The Taj Mahal is visited by over seven million people every year.",why:"Present simple: visit → is visited."},
+{task:"Change to the passive",q:"People use smartphones all over the world.",a:"Smartphones are used all over the world.",why:"Present simple passive: are + used."},
+{task:"Change to the passive",q:"The company produces these products in Korea.",a:"These products are produced by the company in Korea.",why:"Present simple passive: are + produced."},
+{task:"Active, passive, or neither?",q:"Apple products are popular around the world.",a:"Neither — it is not passive.",why:"“Popular” is an adjective, not a past participle in a passive construction."},
+{task:"Complete the sentence",q:"The first Apple laptops ___ in 1999. (produce)",a:"were produced",why:"Past simple passive; “laptops” is plural."},
+{task:"Complete the sentence",q:"Rihanna’s music ___ by people all over the world. (love)",a:"is loved",why:"Present simple passive: is + loved."},
+{task:"Complete the sentence",q:"This movie ___ outside Europe. (not / know)",a:"isn’t known",why:"Present simple negative passive."},
+{task:"Make a passive question",q:"___ this product ___ in Asia? (sell)",a:"Is this product sold in Asia?",why:"Is + subject + past participle?"}, 
+{task:"Complete the sentence",q:"The London Underground ___ by one billion passengers last year. (use)",a:"was used",why:"Past simple passive; “last year” refers to the past."},
+{task:"Complete the sentence",q:"The first YouTube video ___ by Jawed Karim in 2005. (make)",a:"was made",why:"Past simple passive."},
+{task:"Complete the sentence",q:"500 hours of videos ___ to the site every minute. (upload)",a:"are uploaded",why:"Present simple passive for a regular fact."},
+{task:"Active or passive? Complete the sentence",q:"2.5 billion people ___ YouTube every month. (use)",a:"use",why:"Active voice: people perform the action."},
+{task:"Complete the sentence",q:"One billion hours of video ___ on YouTube every day. (watch)",a:"are watched",why:"Present simple passive: video receives the action."},
+{task:"Correct the mistake",q:"The first laptop was produce in 1999.",a:"The first laptop was produced in 1999.",why:"Use the past participle after was."},
+{task:"Correct the mistake",q:"These products is made in Korea.",a:"These products are made in Korea.",why:"Plural subject → are."},
+{task:"Correct the mistake",q:"The logo designed by Apple in 2006.",a:"The logo was designed by Apple in 2006.",why:"The past simple passive needs was/were + past participle."},
+{task:"By + agent",q:"The logo was designed by an award-winning design company. Keep or omit the agent?",a:"Keep it.",why:"It identifies who designed the logo and adds useful information."},
+{task:"By + agent",q:"Some traditional skills aren’t used by people anymore. Can we omit “by people”?",a:"Yes: Some traditional skills aren’t used anymore.",why:"“People” is general and adds little information."},
+{task:"Active or passive?",q:"Companies advertise cereal more than any other product, apart from cars.",a:"ACTIVE",why:"Companies perform the action: advertise."},
+{task:"Complete the sentence",q:"Finn Juhl ___ in 1912. (be born)",a:"was born",why:"Past simple passive."},
+{task:"Complete the sentence",q:"Finn Juhl ___ his first chair in 1937. (design)",a:"designed",why:"Past simple active: Finn Juhl performed the action."}
+];
+let order=cards.map((_,i)=>i), idx=0, flipped=false, mastered=new Set();
+const $=id=>document.getElementById(id);
+function render(){
+ const c=cards[order[idx]];
+ $("count").textContent=`Card ${idx+1} of ${cards.length}`;
+ $("mastered").textContent=`Mastered: ${mastered.size}/${cards.length}`;
+ $("bar").style.width=`${((idx+1)/cards.length)*100}%`;
+ $("category").textContent=c.task;
+ $("question").textContent=flipped?c.a:c.q;
+ $("card").classList.toggle("answer",flipped);
+ $("tap").textContent=flipped?"Tap to return to the question":"Think of your answer, then tap to reveal.";
+ $("sideTitle").textContent=flipped?"Answer explanation":"Your task";
+ $("explanation").hidden=!flipped;
+ $("explanation").textContent=flipped?c.why:"";
+ $("helper").hidden=flipped;
+ $("flip").textContent=flipped?"Show question":"Reveal answer";
+ $("prev").disabled=idx===0; $("next").disabled=idx===cards.length-1;
+ $("gotit").textContent=mastered.has(order[idx])?"✓ Mastered":"✓ I got it right";
+}
+function flip(){flipped=!flipped;render()}
+function move(n){idx=Math.max(0,Math.min(cards.length-1,idx+n));flipped=false;render()}
+$("card").addEventListener("click",flip);
+$("card").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip()}});
+$("flip").addEventListener("click",flip);
+$("prev").addEventListener("click",()=>move(-1));
+$("next").addEventListener("click",()=>move(1));
+$("gotit").addEventListener("click",()=>{mastered.add(order[idx]);render()});
+$("again").addEventListener("click",()=>{mastered.delete(order[idx]);render()});
+$("shuffle").addEventListener("click",()=>{for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}idx=0;flipped=false;render()});
+$("restart").addEventListener("click",()=>{order=cards.map((_,i)=>i);idx=0;flipped=false;mastered.clear();render()});
+render();
+</script>
+</body>
+</html>
